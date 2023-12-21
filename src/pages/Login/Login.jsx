@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuthContext } from "../../hooks/useAuthContext";
+import config from "../../components/config";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -10,7 +11,7 @@ const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [showPass, setShowPass] = useState(false);
   const { dispatch } = useAuthContext();
-  const url = "https://radnoti.adaptable.app/";
+  const url = config.URL;
 
   const navigate = useNavigate();
 
@@ -84,7 +85,7 @@ const Login = () => {
           <Link to={"/valtoztat"}>Elfejtettem a jelszavam</Link>
         </div>
         <div className="button-container">
-          <Link to={"/register"}>Még nincs fiókod? Regisztrálj!</Link>
+          <Link to={"/regisztracio"}>Még nincs fiókod? Regisztrálj!</Link>
           <button type="submit" disabled={isLoading}>
             Belépés
           </button>
